@@ -8,14 +8,14 @@
 
   <meta property="og:title" content="신동윤 · 신지연 결혼식에 초대합니다" />
   <meta property="og:description" content="2026년 5월 23일 오후 6시 30분, 남산예술원 웨딩홀" />
-  <meta property="og:image" content="https://indisohari.github.io/shin-wedding/main.jpg" />
+  <meta property="og:image" content="https://indisohari.github.io/shin-wedding/main.png" />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="main.jpg">
+  <link rel="preload" as="image" href="main.png">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
@@ -61,6 +61,12 @@
 
     .section-label-ko { font-size: 13.5px; color: #7a6b6b; letter-spacing: 1px; margin-bottom: 20px; display: block; font-weight: 500; }
 
+    /* ★ 마스터의 텍스트 줄바꿈 방어막 ★ */
+    .keep { 
+      display: inline-block; 
+      white-space: nowrap; 
+    }
+
     /* 1. HERO */
     .hero { padding: 0 0 50px; background: #fff; }
     .hero-text-area { padding-top: 80px; padding-bottom: 40px; animation: fadeUpLoad 1.2s ease-out forwards; opacity: 0; }
@@ -68,19 +74,24 @@
 
     .names { font-size: 27px; margin-bottom: 12px; letter-spacing: 1px; line-height: 1.4; color: #111; font-weight: 400; }
 
-    /* 메인 사진은 확대 기능 제거 (보기 전용) */
+    /* 메인 사진 (여백 확보 및 1px 테두리) */
     .main-photo-frame {
       width: 100%;
       margin: 0;
-      aspect-ratio: 4 / 3;
       overflow: hidden;
       border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.06); 
       animation: fadeUpLoad 1.2s ease-out 0.3s forwards;
       opacity: 0;
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
       cursor: default;
     }
-    .main-photo { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 65%; filter: brightness(1.02) contrast(1.02) sepia(0.05) saturate(0.95); }
+    .main-photo { 
+      width: 100%; 
+      height: auto; 
+      display: block; 
+      filter: brightness(1.02) contrast(1.02) sepia(0.05) saturate(0.95); 
+    }
 
     .parents-area { display: flex; align-items: center; justify-content: center; width: 100%; margin-top: 45px; padding: 0 10px; box-sizing: border-box; animation: fadeUpLoad 1.2s ease-out 0.6s forwards; opacity: 0; }
     .parent-row { flex: 1; text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
@@ -193,35 +204,35 @@
 
     footer { padding: 0 20px 80px; text-align: center; color: #aaa; font-size: 11px; letter-spacing: 3px; line-height: 1.8; background: var(--section-gray); }
 
-/* 약도 확대 전용: 흰 배경 모달 */
-.map-white-modal {
-  --fancybox-bg: rgba(255, 255, 255, 0.98) !important;
-  --f-button-color: #222 !important;
-  --f-button-hover-color: #000 !important;
-  --f-button-bg: rgba(240, 240, 240, 0.7) !important;
-}
+    /* 약도 확대 전용: 흰 배경 모달 */
+    .map-white-modal {
+      --fancybox-bg: rgba(255, 255, 255, 0.98) !important;
+      --f-button-color: #222 !important;
+      --f-button-hover-color: #000 !important;
+      --f-button-bg: rgba(240, 240, 240, 0.7) !important;
+    }
 
-/* Fancybox v5 */
-.map-white-modal .fancybox__backdrop {
-  background: rgba(255, 255, 255, 0.98) !important;
-}
+    /* Fancybox v5 */
+    .map-white-modal .fancybox__backdrop {
+      background: rgba(255, 255, 255, 0.98) !important;
+    }
 
-/* 구버전 클래스 대응 (안전장치) */
-.map-white-modal .f-backdrop {
-  background-color: rgba(255, 255, 255, 0.98) !important;
-}
+    /* 구버전 클래스 대응 (안전장치) */
+    .map-white-modal .f-backdrop {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+    }
 
-/* 닫기 버튼 가독성 */
-.map-white-modal .f-button {
-  color: #222 !important;
-  background-color: rgba(240, 240, 240, 0.7) !important;
-}
+    /* 닫기 버튼 가독성 */
+    .map-white-modal .f-button {
+      color: #222 !important;
+      background-color: rgba(240, 240, 240, 0.7) !important;
+    }
 
-/* 이미지 주변 투명 처리 (배경은 backdrop의 흰색 사용) */
-.map-white-modal .fancybox__content,
-.map-white-modal .fancybox__slide {
-  background: transparent !important;
-}
+    /* 이미지 주변 투명 처리 (배경은 backdrop의 흰색 사용) */
+    .map-white-modal .fancybox__content,
+    .map-white-modal .fancybox__slide {
+      background: transparent !important;
+    }
 
     /* 토스트 */
     .toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(45px + env(safe-area-inset-bottom)); background: rgba(30,30,30,0.95); color: #fff; padding: 15px 22px; border-radius: 30px; font-size: 14.5px; z-index: 3000; font-weight: 400; width: auto; max-width: calc(100vw - 40px); word-break: keep-all; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); margin-bottom: -15px; }
@@ -240,10 +251,10 @@
     <section class="hero">
       <div class="hero-text-area">
         <div class="date-text font-serif">2026 / 05 / 23</div>
-        <div class="names font-serif">신동윤 <span style="font-size:16px; color:#ddd; vertical-align:middle; margin:0 8px;">&</span> 신지연</div>
+        <div class="names font-serif"><span class="keep">신동윤</span> <span style="font-size:16px; color:#ddd; vertical-align:middle; margin:0 8px;">&</span> <span class="keep">신지연</span></div>
         <div style="font-size: 15px; color: #666; letter-spacing: 1.5px; margin-top: 15px;">결혼식에 초대합니다</div>
       </div>
-      <div class="main-photo-frame"><img src="main.jpg" alt="신동윤 신지연 웨딩 메인 사진" class="main-photo"></div>
+      <div class="main-photo-frame"><img src="main.png" alt="신동윤 신지연 웨딩 메인 사진" class="main-photo"></div>
       <div class="parents-area">
         <div class="parent-row"><div class="p-names">故신양철 · 여현주<span class="relation">의 아들</span></div><div class="me font-serif">신동윤</div></div>
         <div style="width:1px; height:35px; background:#e5e5e5; margin: 0 25px;"></div>
@@ -254,9 +265,10 @@
     <section class="info-section fade-in">
       <span class="section-label-ko">언제 · 어디서</span>
       <div class="info-group">
-        <div class="info-title font-serif">2026. 05. 23. 토요일 <br> 오후 6시 30분</div>
+        <div class="info-title font-serif"><span class="keep">2026. 05. 23. 토요일</span> <br> <span class="keep">오후 6시 30분</span></div>
         <div class="info-desc">
-          예식장 입장은 오후 5시 45분부터,<br>식사는 오후 6시부터 8시까지 하실 수 있습니다.
+          <span class="keep">예식장 입장은 <b>오후 5시 45분</b>부터,</span><br>
+          <span class="keep">식사는 <b>오후 6시부터 8시</b>까지</span> <span class="keep">하실 수 있습니다.</span>
         </div>
 
         <div style="margin-top: 25px;">
@@ -328,7 +340,7 @@
             <p class="detail-desc" style="font-size: 13.5px; color: #666; line-height: 1.6;">
               <b>지하철 ↔ 버스 환승 안내</b><br>
               2호선 신당역, 3호선 약수역, 5호선 청구역 하차 후<br>
-              <b style="color:#444;">142번, 6211번</b> 버스로 환승하시면 편리합니다.
+              <b style="color:#444;">142번, 6211번</b> 버스로 환승하시면 됩니다.
             </p>
           </div>
         </div>
@@ -360,7 +372,7 @@
         </p>
         <p style="margin-top: 18px;">
           예식장 내부와 인근에는<br>
-          <b class="notice-strong">현금인출기(ATM)가 없습니다.</b>
+          <b class="notice-strong">현금인출기가 없습니다.</b>
         </p>
       </div>
     </section>
@@ -419,62 +431,66 @@
       <h2 class="font-serif" style="font-size: 22px; margin-bottom: 35px; font-weight: 700; color: #111;">이렇게 결혼합니다</h2>
 
       <div class="poem-wrap font-serif">
-빠릿한 동윤은 느긋한 지연이 답답합니다.
-신중한 지연은 서두르는 동윤이 불안합니다.
-결혼 준비하며 참 많이도 아웅다웅했습니다.
+<span class="keep">빠릿한 동윤은</span> <span class="keep">느긋한 지연이 답답합니다.</span>
+<span class="keep">신중한 지연은</span> <span class="keep">서두르는 동윤이 불안합니다.</span>
+<span class="keep">결혼 준비하며</span> <span class="keep">많이도 아웅다웅했습니다.</span>
 
-지연은 강아지를 좋아합니다.
-동윤은 고양이를 키우고 있습니다.
-지연은 기꺼이 고양이를 가족으로 맞이합니다.
+<span class="keep">지연은 강아지를 좋아합니다.</span>
+<span class="keep">동윤은 고양이를 키우고 있습니다.</span>
+<span class="keep">지연은 기꺼이</span> <span class="keep">고양이를 가족으로 맞이합니다.</span>
 
-가리는 음식은 별로 없습니다.
-상대가 먹고 싶은 걸 먼저 챙깁니다.
-늘 메뉴 선택이 미뤄지는 부작용이 생깁니다.
+<span class="keep">가리는 음식은 별로 없습니다.</span>
+<span class="keep">상대가 먹고 싶은 걸 먼저 챙깁니다.</span>
+<span class="keep">늘 메뉴 선택이 미뤄지는</span> <span class="keep">부작용이 생깁니다.</span>
 
-테니스를 치다가 만났습니다.
-함께 땀 흘리며
-호흡을 맞춰가는 재미가 있습니다.
+<span class="keep">테니스를 치다가 만났습니다.</span>
+<span class="keep">함께 땀 흘리며</span>
+<span class="keep">호흡을 맞춰가는 재미가 있습니다.</span>
 
-삶의 속도도, 사랑의 방식도
-다른 둘이 만났습니다.
+<span class="keep">삶의 속도도,</span> <span class="keep">사랑의 방식도</span>
+<span class="keep">다른 둘이 만났습니다.</span>
 
-“자유는 ‘자기의 이유’로
-살아가는 것”이라 합니다.
+<span class="keep">“자유는 ‘자기의 이유’로</span>
+<span class="keep">살아가는 것”이라 합니다.</span>
 
-서로의 다름을
-기꺼이 나의 이유로 삼아,
-자유로운 가정을 이루고자 합니다.
+<span class="keep">서로의 다름을</span>
+<span class="keep">기꺼이 나의 이유로 삼아,</span>
+<span class="keep">자유로운 가정을 이루고자 합니다.</span>
 
-어떤 순간에도 외롭지 않도록
-서로의 곁을 지키겠다는 다짐,
-여러분과 함께 나누고 싶습니다.
+<span class="keep">어떤 순간에도 외롭지 않도록</span>
+<span class="keep">서로의 곁을 지키겠다는 다짐,</span>
+<span class="keep">여러분과 함께 나누고 싶습니다.</span>
 
-이 약속의 자리에
-함께해 주시길 바랍니다.
-감사합니다.</div>
+<span class="keep">이 약속의 자리에</span>
+<span class="keep">함께해 주시길 바랍니다.</span>
+<span class="keep">감사합니다.</span></div>
     </section>
 
     <section class="gallery-section fade-in">
-      <span class="section-label-ko" style="margin-bottom: 10px;">웨딩 사진...</span>
+      <span class="section-label-ko" style="margin-bottom: 10px;">웨딩 사진... 동윤 입장↓</span>
       <h2 class="font-serif" style="font-size: 23px; margin-bottom: 25px; font-weight: 700; color: #111; line-height: 1.4;">한 번은 해도,<br>두 번은 못할 촬영</h2>
 
       <div class="gallery-grid">
-        <img src="1.jpg" alt="웨딩 사진 1" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="2.jpg" alt="웨딩 사진 2" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="3.jpg" alt="웨딩 사진 3" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="4.jpg" alt="웨딩 사진 4" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="5.jpg" alt="웨딩 사진 5" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="6.jpg" alt="웨딩 사진 6" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="7.jpg" alt="웨딩 사진 7" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="8.jpg" alt="웨딩 사진 8" data-fancybox="gallery" class="gallery-img" loading="lazy">
-        <img src="9.jpg" alt="웨딩 사진 9" data-fancybox="gallery" class="gallery-img" loading="lazy">
+        <img src="1.jpg" alt="웨딩 사진 1" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 65%;">
+        <img src="2.jpg" alt="웨딩 사진 2" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 65%;">
+        <img src="3.jpg" alt="웨딩 사진 3" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 25%;">
+        <img src="4.jpg" alt="웨딩 사진 4" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 40%;">
+        <img src="5.jpg" alt="웨딩 사진 5" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 75%;">
+        <img src="6.jpg" alt="웨딩 사진 6" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 70%;">
+        <img src="7.jpg" alt="웨딩 사진 7" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 65%;">
+        <img src="8.jpg" alt="웨딩 사진 8" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 45%;">
+        <img src="9.jpg" alt="웨딩 사진 9" data-fancybox="gallery" class="gallery-img" loading="lazy" style="object-position: center 85%;">
       </div>
 
+      <div style="display: none;">
+        <img src="10.jpg" data-fancybox="gallery" id="hiddenPhotoStart">
+        </div>
+
       <div style="text-align: center;">
-        <a href="https://photos.app.goo.gl/mJmxhc6hSy7y4ujA9" target="_blank" rel="noopener noreferrer" class="btn-gallery-more">
+        <button type="button" class="btn-gallery-more" onclick="document.getElementById('hiddenPhotoStart').click();">
           더 많은 사진 보기
           <svg aria-hidden="true" viewBox="0 0 24 24" style="width: 14px; height: 14px; margin-left: 6px; stroke: #666; fill:none; stroke-width:2;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        </a>
+        </button>
       </div>
     </section>
 
@@ -534,14 +550,16 @@
       var phoneInput = document.getElementById("phone");
       var rsvpForm = document.getElementById("rsvpForm");
       var shareBtn = document.getElementById("shareBtn");
-// 2) 성함 입력 시 공백 즉시 제거
-var nameInput = document.getElementById("name");
-if (nameInput) {
-  nameInput.addEventListener("input", function(e) {
-    var v = e.target.value;
-    e.target.value = v.replace(/\s+/g, "");
-  });
-}
+      
+      // 2) 성함 입력 시 공백 즉시 제거
+      var nameInput = document.getElementById("name");
+      if (nameInput) {
+        nameInput.addEventListener("input", function(e) {
+          var v = e.target.value;
+          e.target.value = v.replace(/\s+/g, "");
+        });
+      }
+      
       // 1) select 색상
       if (guestSide) {
         guestSide.addEventListener("change", function() { this.style.color = "#111"; });
@@ -659,61 +677,59 @@ if (nameInput) {
     }
 
     // ===== RSVP 제출 =====
-  function submitRsvp() {
-  var sideSelect = document.getElementById("guestSide");
-  var side = sideSelect.value;
-  var name = document.getElementById("name").value.trim().replace(/\s+/g, ""); // 안전하게 공백 제거
-  var phone = document.getElementById("phone").value.trim();
-  var countSelect = document.getElementById("guestCount");
-  var count = countSelect.value;
-  var btn = document.getElementById("submitBtn");
+    function submitRsvp() {
+      var sideSelect = document.getElementById("guestSide");
+      var side = sideSelect.value;
+      var name = document.getElementById("name").value.trim().replace(/\s+/g, ""); 
+      var phone = document.getElementById("phone").value.trim();
+      var countSelect = document.getElementById("guestCount");
+      var count = countSelect.value;
+      var btn = document.getElementById("submitBtn");
 
-  var nameRegex = /^[가-힣]{2,20}$/;
-  var phoneRegex = /^01[016789]-\d{3,4}-\d{4}$/;
+      var nameRegex = /^[가-힣]{2,20}$/;
+      var phoneRegex = /^01[016789]-\d{3,4}-\d{4}$/;
 
-  if (!side) return toast("참석 구분을 선택해 주세요");
-  if (!name) return toast("성함을 입력해 주세요");
-  if (!nameRegex.test(name)) return toast("성함은 한글 2~20자, 띄어쓰기 없이 입력해 주세요");
-  if (!phoneRegex.test(phone)) return toast("연락처를 정확히 입력해 주세요");
-  if (!count) return toast("참석 인원을 선택해 주세요");
+      if (!side) return toast("참석 구분을 선택해 주세요");
+      if (!name) return toast("성함을 입력해 주세요");
+      if (!nameRegex.test(name)) return toast("성함은 한글 2~20자, 띄어쓰기 없이 입력해 주세요");
+      if (!phoneRegex.test(phone)) return toast("연락처를 정확히 입력해 주세요");
+      if (!count) return toast("참석 인원을 선택해 주세요");
 
-  btn.disabled = true;
-  btn.textContent = "전송 중...";
+      btn.disabled = true;
+      btn.textContent = "전송 중...";
 
-  var guestCountLabel = countSelect.options[countSelect.selectedIndex].text;
-  var scriptUrl = RSVP_ENDPOINT;
+      var guestCountLabel = countSelect.options[countSelect.selectedIndex].text;
+      var scriptUrl = RSVP_ENDPOINT;
 
-  fetch(scriptUrl, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify({
-      side: side,
-      name: name,
-      phone: phone,
-      guestCount: count,
-      guestCountLabel: guestCountLabel
-    })
-  })
-  .then(function() {
-    // no-cors에서는 신규/수정 여부를 프론트가 알 수 없으므로 중립 문구가 안전
-    toast("감사합니다! 참석 정보가 등록/수정되었습니다");
-
-    sideSelect.value = "";
-    sideSelect.style.color = "#aaa";
-    document.getElementById("name").value = "";
-    document.getElementById("phone").value = "";
-    countSelect.value = "";
-    countSelect.style.color = "#aaa";
-  })
-  .catch(function() {
-    alert("전송 중 문제가 발생했습니다. 나중에 다시 시도해 주세요.");
-  })
-  .finally(function() {
-    btn.disabled = false;
-    btn.textContent = "참석 정보 전달하기";
-  });
-}
+      fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          side: side,
+          name: name,
+          phone: phone,
+          guestCount: count,
+          guestCountLabel: guestCountLabel
+        })
+      })
+      .then(function() {
+        toast("감사합니다! 참석 정보가 등록/수정되었습니다");
+        sideSelect.value = "";
+        sideSelect.style.color = "#aaa";
+        document.getElementById("name").value = "";
+        document.getElementById("phone").value = "";
+        countSelect.value = "";
+        countSelect.style.color = "#aaa";
+      })
+      .catch(function() {
+        alert("전송 중 문제가 발생했습니다. 나중에 다시 시도해 주세요.");
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.textContent = "참석 정보 전달하기";
+      });
+    }
 
     // ===== 링크 초기화 =====
     function initLinks() {
@@ -733,39 +749,34 @@ if (nameInput) {
 
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script>
-    // 갤러리
+    // 갤러리 (썸네일 바 자동 실행 및 대소문자 수정 완료)
     Fancybox.bind('[data-fancybox="gallery"]', {
       Hash: false,
-      Thumbs: false,
+      Thumbs: { autoStart: true },
       Toolbar: { display: { left: [], middle: [], right: ["close"] } },
       Images: { zoom: false }
     });
 
     // 약도 (확대 허용)
- Fancybox.bind('[data-fancybox="map"]', {
-  Hash: false,
-  Thumbs: false,
-  Toolbar: { display: { left: [], middle: [], right: ["close"] } },
-  contentClick: "toggleZoom",
-  backdropClick: "close",
-  on: {
-    ready: function(fancybox) {
-      if (!fancybox || !fancybox.container) return;
-
-      // 컨테이너에 클래스 부여
-      fancybox.container.classList.add("map-white-modal");
-
-      // 버전별 백드롭 클래스 대응
-      var backdrop =
-        fancybox.container.querySelector(".fancybox__backdrop") ||
-        fancybox.container.querySelector(".f-backdrop");
-
-      if (backdrop) {
-        backdrop.style.background = "rgba(255,255,255,0.98)";
+    Fancybox.bind('[data-fancybox="map"]', {
+      Hash: false,
+      Thumbs: false,
+      Toolbar: { display: { left: [], middle: [], right: ["close"] } },
+      contentClick: "toggleZoom",
+      backdropClick: "close",
+      on: {
+        ready: function(fancybox) {
+          if (!fancybox || !fancybox.container) return;
+          fancybox.container.classList.add("map-white-modal");
+          var backdrop =
+            fancybox.container.querySelector(".fancybox__backdrop") ||
+            fancybox.container.querySelector(".f-backdrop");
+          if (backdrop) {
+            backdrop.style.background = "rgba(255,255,255,0.98)";
+          }
+        }
       }
-    }
-  }
-});
+    });
   </script>
 </body>
 </html>
